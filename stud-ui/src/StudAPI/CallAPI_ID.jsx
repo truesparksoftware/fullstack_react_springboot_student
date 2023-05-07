@@ -11,7 +11,7 @@ export class CallAPI extends Component {
         };
       }
       onsubmit=()=> {
-        axios.get("http://localhost:8080/student/id",{params: {id: this.state.id}})
+        axios.get(`http://localhost:8080/student/id/${this.id}`)
           .then(respone => {
             this.setState({
               Student: respone.data
@@ -44,7 +44,7 @@ export class CallAPI extends Component {
             <div>
         Student ID:   <input type="text" name="id" value={this.state.id} onChange={this.changeHandler}/>
                      </div>
-            <button onClick={this.onsubmit}>getID</button>
+            <button onClick={this.onsubmit}>getStudent</button>
           </div>
         );
       }

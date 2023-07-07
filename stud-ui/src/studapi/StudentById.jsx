@@ -11,7 +11,7 @@ export class StudentById extends Component {
         };
       }
       onsubmit=()=> {
-        axios.get(`http://localhost:8080/student/id/${this.id}`)
+        axios.get(`http://localhost:8080/student/id/${this.state.id}`)
           .then(respone => {
             this.setState({
               Student: respone.data

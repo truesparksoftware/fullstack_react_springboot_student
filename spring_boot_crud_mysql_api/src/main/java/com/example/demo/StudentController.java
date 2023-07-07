@@ -27,9 +27,8 @@ public class StudentController {
 
 	@GetMapping("/id/{id}")
 	public ResponseEntity<Student> getMobile(@PathVariable Integer id) {
-		Optional<Student> mb=studentImpl.findById(id);
-		Student mn=mb.get();
-		return new ResponseEntity<Student>(mn,HttpStatus.OK);
+		Optional<Student> mb= studentImpl.findById(id);
+		return new ResponseEntity<Student>(mb.get(),HttpStatus.OK);
 	}
 	
 	@GetMapping("/all")

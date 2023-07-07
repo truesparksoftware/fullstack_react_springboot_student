@@ -32,7 +32,7 @@ export class DeleteStudent extends Component {
       render() {
         const { Student, errorMsg } = this.state;
         return (
-          <div className='saveStudent'>
+          <div>
             List of posts
             {Student.length ? 
             Student.map(post => <div key={post.id}> {Student.title}</div>)

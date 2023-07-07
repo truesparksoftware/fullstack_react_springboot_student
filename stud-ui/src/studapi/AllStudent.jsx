@@ -28,7 +28,7 @@ export class AllStudent extends Component {
       render() {
         const { Student, errorMsg } = this.state;
         return (
-          <div className='saveStudent'>
+          <div>
             List of posts
             <table cellPadding="5" cellSpacing="5">
             <thead>
@@ -41,7 +41,7 @@ export class AllStudent extends Component {
             </thead>
             <tbody>
             {Student.length ? 
-            Student.map(post => <tr>
+            Student.map(post => <tr key={post.id}>
               <td>{post.id}</td>
               <td>{post.name}</td>
               <td>{post.address}</td>

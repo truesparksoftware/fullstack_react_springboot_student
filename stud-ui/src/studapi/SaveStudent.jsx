@@ -30,7 +30,7 @@ class SaveStudent extends Component {
     render() {
         const{id,name,address,clas}=this.state
         return (
-            <div className='saveStudent'>
+            <div>
                 <form  onSubmit={this.submitForm}>
                  <div>
                   Student ID:   <input type="text" name="id" value={id} onChange={this.changeHandler}/><br/><br/><br/>

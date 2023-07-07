@@ -7,7 +7,7 @@ import DeleteStudent from './studapi/DeleteStudent';
 
 function App() {
   return (
-    <div >
+    <div className='saveStudent'>
    <Router>
   <ul>
  <li>

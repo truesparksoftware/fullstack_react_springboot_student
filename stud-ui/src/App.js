@@ -1,13 +1,13 @@
 import { BrowserRouter as Router,Routes,Link,Route} from 'react-router-dom';
 import React from 'react';
-import CallAPI from './StudAPI/CallAPI';
-import PostForm from './StudAPI/PostForm';
-import CallAPI_ID from './StudAPI/CallAPI_ID';
-import Delete_ID from './StudAPI/Delete_ID';
+import AllStudent from './studapi/AllStudent';
+import SaveStudent from './studapi/SaveStudent';
+import StudentById from './studapi/StudentById';
+import DeleteStudent from './studapi/DeleteStudent';
 
 function App() {
   return (
-    <div>
+    <div >
    <Router>
   <ul>
  <li>
@@ -24,10 +24,10 @@ function App() {
  </li>
  </ul>
  <Routes>
- <Route path='/AllStudent' element={<CallAPI/>}></Route>
- <Route path='/SaveStudent' element={<PostForm/>}></Route>
-   <Route path='/getStudentById' element={<CallAPI_ID/>}></Route>
-   <Route path='/DeleteStudent' element={<Delete_ID/>}></Route>
+ <Route path='/AllStudent' element={<AllStudent/>}></Route>
+ <Route path='/SaveStudent' element={<SaveStudent/>}></Route>
+   <Route path='/getStudentById' element={<StudentById/>}></Route>
+   <Route path='/DeleteStudent' element={<DeleteStudent/>}></Route>
    </Routes>
 </Router>
  </div>

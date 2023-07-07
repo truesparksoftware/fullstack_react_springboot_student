@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import Axios from 'axios'
+import Axios from 'axios';
+import '../App.css';
 
-class PostForm extends Component {
+class SaveStudent extends Component {
     constructor(props) {
         super(props)
     
@@ -29,19 +30,19 @@ class PostForm extends Component {
     render() {
         const{id,name,address,clas}=this.state
         return (
-            <div>
-                <form onSubmit={this.submitForm}>
+            <div className='saveStudent'>
+                <form  onSubmit={this.submitForm}>
                  <div>
-                  Student ID:   <input type="text" name="id" value={id} onChange={this.changeHandler}/>
+                  Student ID:   <input type="text" name="id" value={id} onChange={this.changeHandler}/><br/><br/><br/>
                      </div>
                     <div>
-                 Student Name:    <input type="text" name="name" value={name} onChange={this.changeHandler}/>
+                 Student Name:    <input type="text" name="name" value={name} onChange={this.changeHandler}/><br/><br/><br/>
                      </div>
                      <div>
-                 Student Address:    <input type="text" name="address" value={address} onChange={this.changeHandler}/>
+                 Student Address:    <input type="text" name="address" value={address} onChange={this.changeHandler}/><br/><br/><br/>
                      </div>
                      <div>
-                 Student Class:    <input type="text" name="clas" value={clas} onChange={this.changeHandler}/>
+                 Student Class:    <input type="text" name="clas" value={clas} onChange={this.changeHandler}/><br/><br/><br/>
                      </div>
                      <button type="submit">Save Student</button>
                 </form>
@@ -50,4 +51,4 @@ class PostForm extends Component {
     }
 } 
 
-export default PostForm
+export default SaveStudent

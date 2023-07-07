@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
 import axios from "axios";
 
-export class CallAPI extends Component {
+export class AllStudent extends Component {
     constructor(props) {
         super(props);
     
         this.state = {
-            id:0,
           Student:[]
         };
       }
-      onsubmit=()=> {
-        axios.get(`http://localhost:8080/student/id/${this.id}`)
+      onsubmit=()=>{
+        axios.get("http://localhost:8080/student/all")
           .then(respone => {
             this.setState({
               Student: respone.data
@@ -25,30 +24,38 @@ export class CallAPI extends Component {
             });
           });
       }
-      
-      changeHandler=(evnt)=>{
-          this.setState({
-              id:evnt.target.value
-          })
-      }
 
       render() {
         const { Student, errorMsg } = this.state;
         return (
-          <div>
+          <div className='saveStudent'>
             List of posts
+            <table cellPadding="5" cellSpacing="5">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Class</th>
+                </tr>
+            </thead>
+            <tbody>
             {Student.length ? 
-            Student.map(post => <div key={post.id}> {Student.title}</div>)
+            Student.map(post => <tr>
+              <td>{post.id}</td>
+              <td>{post.name}</td>
+              <td>{post.address}</td>
+              <td>{post.clas}</td>
+          </tr>)
               : null}
             {errorMsg ? <div>{errorMsg}</div> : null}
-            <div>
-        Student ID:   <input type="text" name="id" value={this.state.id} onChange={this.changeHandler}/>
-                     </div>
-            <button onClick={this.onsubmit}>getStudent</button>
+            </tbody>
+            </table>
+            <button onClick={this.onsubmit}>Get All Student</button>
           </div>
         );
       }
     }
     
 
-export default CallAPI
+export default AllStudent

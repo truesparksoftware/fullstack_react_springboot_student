@@ -1,20 +1,18 @@
 import React, { Component } from 'react'
 import axios from "axios";
 
-export class CallAPI extends Component {
+export class DeleteStudent extends Component {
     constructor(props) {
         super(props);
     
         this.state = {
+            id:0,
           Student:[]
         };
       }
-      onsubmit=()=>{
-        axios.get("http://localhost:8080/student/all")
+      onsubmit=()=> {
+        axios.delete("http://localhost:8080/student/delete",{params: {id: this.state.id}})
           .then(respone => {
-            this.setState({
-              Student: respone.data
-            });
             console.log(respone.data);
           })
           .catch(error => {
@@ -24,21 +22,30 @@ export class CallAPI extends Component {
             });
           });
       }
+      
+      changeHandler=(evnt)=>{
+          this.setState({
+              id:evnt.target.value
+          })
+      }
 
       render() {
         const { Student, errorMsg } = this.state;
         return (
-          <div>
+          <div className='saveStudent'>
             List of posts
             {Student.length ? 
-            Student.map(post => <div key={post.id}> {post.title}</div>)
+            Student.map(post => <div key={post.id}> {Student.title}</div>)
               : null}
             {errorMsg ? <div>{errorMsg}</div> : null}
-            <button onClick={this.onsubmit}>Get All Student</button>
+            <div>
+        Delete ID:   <input type="text" name="id" value={this.state.id} onChange={this.changeHandler}/>
+                     </div>
+            <button onClick={this.onsubmit}>Delete Student</button>
           </div>
         );
       }
     }
     
 
-export default CallAPI
+export default DeleteStudent

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from "axios";
 
-export class Delete_ID extends Component {
+export class StudentById extends Component {
     constructor(props) {
         super(props);
     
@@ -11,8 +11,11 @@ export class Delete_ID extends Component {
         };
       }
       onsubmit=()=> {
-        axios.delete("http://localhost:8080/student/delete",{params: {id: this.state.id}})
+        axios.get(`http://localhost:8080/student/id/${this.id}`)
           .then(respone => {
+            this.setState({
+              Student: respone.data
+            });
             console.log(respone.data);
           })
           .catch(error => {
@@ -32,20 +35,20 @@ export class Delete_ID extends Component {
       render() {
         const { Student, errorMsg } = this.state;
         return (
-          <div>
+          <div className='saveStudent'>
             List of posts
             {Student.length ? 
             Student.map(post => <div key={post.id}> {Student.title}</div>)
               : null}
             {errorMsg ? <div>{errorMsg}</div> : null}
             <div>
-        Delete ID:   <input type="text" name="id" value={this.state.id} onChange={this.changeHandler}/>
+        Student ID:   <input type="text" name="id" value={this.state.id} onChange={this.changeHandler}/>
                      </div>
-            <button onClick={this.onsubmit}>Delete Student</button>
+            <button onClick={this.onsubmit}>getStudent</button>
           </div>
         );
       }
     }
     
 
-export default Delete_ID
+export default StudentById

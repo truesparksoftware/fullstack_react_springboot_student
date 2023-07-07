@@ -39,7 +39,7 @@ export class DeleteStudent extends Component {
               : null}
             {errorMsg ? <div>{errorMsg}</div> : null}
             <div>
-        Delete ID:   <input type="text" name="id" value={this.state.id} onChange={this.changeHandler}/>
+        Delete ID:   <input type="number" name="id" value={this.state.id} onChange={this.changeHandler}/>
                      </div>
             <button onClick={this.onsubmit}>Delete Student</button>
           </div>

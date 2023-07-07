@@ -42,7 +42,7 @@ export class StudentById extends Component {
               : null}
             {errorMsg ? <div>{errorMsg}</div> : null}
             <div>
-        Student ID:   <input type="text" name="id" value={this.state.id} onChange={this.changeHandler}/>
+        Student ID:   <input type="number" name="id" value={this.state.id} onChange={this.changeHandler}/>
                      </div>
             <button onClick={this.onsubmit}>getStudent</button>
           </div>
